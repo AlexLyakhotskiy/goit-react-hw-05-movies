@@ -1,0 +1,31 @@
+.Searchbar {
+  padding: 20px 0;
+}
+
+.SearchFormInput {
+  width: 230px;
+  height: 33px;
+  padding: 7px;
+  outline: none;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  margin-right: 5px;
+  transition: border-color linear 250ms;
+  &:focus {
+    border-color: #62b9ff;
+  }
+}
+
+.SearchFormButton {
+  padding: 6px 10px;
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  transition: all linear 250ms;
+  &:hover {
+    background-color: #62b9ff;
+    border-color: transparent;
+    color: #ffffff;
+  }
+}
