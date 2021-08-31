@@ -4,4 +4,4 @@
 [[redirects]]
   from = "/*"
   to = "/index.html/"
-  statrus = 200
+  status  = 200
