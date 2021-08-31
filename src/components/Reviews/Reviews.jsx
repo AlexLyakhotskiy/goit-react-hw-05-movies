@@ -17,17 +17,15 @@ export default function Reviews() {
   return (
     <>
       {!!reviews?.length ? (
-        <>
-          <ul className={styles.list}>
-            {reviews &&
-              reviews.map(({ author_details, content }, idx) => (
-                <li key={idx} className={styles.item}>
-                  <h3 className={styles.title}>{author_details.username}</h3>
-                  <p>{content}</p>
-                </li>
-              ))}
-          </ul>{' '}
-        </>
+        <ul className={styles.list}>
+          {reviews &&
+            reviews.map(({ author_details, content }, idx) => (
+              <li key={idx} className={styles.item}>
+                <h3 className={styles.title}>{author_details.username}</h3>
+                <p>{content}</p>
+              </li>
+            ))}
+        </ul>
       ) : (
         <p>We don't have any reviews for this movie</p>
       )}

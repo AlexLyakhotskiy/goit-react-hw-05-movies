@@ -19,7 +19,6 @@ export default function SearchBar({ onSubmit }) {
       return toast.error('Please enter query');
     }
     onSubmit(searchQuery);
-    setSearchQuery('');
   };
 
   return (

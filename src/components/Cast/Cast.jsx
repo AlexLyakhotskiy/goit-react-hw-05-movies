@@ -19,29 +19,29 @@ export default function Cast() {
   }, [movieId]);
   return (
     <>
-      {!!cast?.length && (
-        <>
-          <ul className={styles.list}>
-            {cast.map(({ character, name, profile_path }, idx) => (
-              <li key={idx} className={styles.item}>
-                <div className={styles.imgWrapper}>
-                  <img
-                    src={
-                      profile_path
-                        ? `https://image.tmdb.org/t/p/w300${profile_path}`
-                        : defaultImage
-                    }
-                    alt={name}
-                  />
-                </div>
-                <div className={styles.contentWrapper}>
-                  <h3 className={styles.name}>{name}</h3>
-                  <p className={styles.character}>{character}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </>
+      {!!cast?.length ? (
+        <ul className={styles.list}>
+          {cast.map(({ character, name, profile_path }, idx) => (
+            <li key={idx} className={styles.item}>
+              <div className={styles.imgWrapper}>
+                <img
+                  src={
+                    profile_path
+                      ? `https://image.tmdb.org/t/p/w300${profile_path}`
+                      : defaultImage
+                  }
+                  alt={name}
+                />
+              </div>
+              <div className={styles.contentWrapper}>
+                <h3 className={styles.name}>{name}</h3>
+                <p className={styles.character}>{character}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>We don't have any cast for this movie</p>
       )}
     </>
   );
