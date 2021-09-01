@@ -1,12 +1,12 @@
-import React from 'react';
-
+import { useHistory, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import PropTypes from 'prop-types';
 
 import styles from './SearchBar.module.scss';
 
-export default function SearchBar({ onSubmit }) {
+export default function SearchBar() {
+  const history = useHistory();
+  const location = useLocation();
   const [searchQuery, setSearchQuery] = useState('');
 
   const onInputChange = e => {
@@ -18,7 +18,8 @@ export default function SearchBar({ onSubmit }) {
     if (searchQuery.trim() === '') {
       return toast.error('Please enter query');
     }
-    onSubmit(searchQuery);
+
+    history.push({ ...location, search: `query=${searchQuery}` });
   };
 
   return (
@@ -40,7 +41,3 @@ export default function SearchBar({ onSubmit }) {
     </div>
   );
 }
-
-SearchBar.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};

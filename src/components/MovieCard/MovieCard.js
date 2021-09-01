@@ -1,6 +1,8 @@
 import { Link, NavLink, useLocation, useRouteMatch } from 'react-router-dom';
 
 import sprite from '../../icons/sprite.svg';
+import defaultImage from '../../images/default.jpg';
+
 import styles from './MovieCard.module.scss';
 
 export default function MovieCard({ movie }) {
@@ -18,7 +20,11 @@ export default function MovieCard({ movie }) {
       <div className={styles.card}>
         <div className={styles.imgWrapper}>
           <img
-            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            src={
+              movie.poster_path
+                ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                : defaultImage
+            }
             alt={movie.title}
           />
         </div>

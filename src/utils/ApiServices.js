@@ -16,15 +16,27 @@ const api = {
   currentPage: 1,
   allPages: 1,
 
+  increasePage() {
+    this.currentPage += 1;
+  },
+
+  resetPage() {
+    this.currentPage = 1;
+  },
+
+  setAllPages(page) {
+    this.allPages = page;
+  },
+
   fetchMovieByQuery(query) {
     return fetchData(
       `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}&page=${this.currentPage}`,
     );
   },
 
-  fetchTrendingMovies(page) {
+  fetchTrendingMovies() {
     return fetchData(
-      `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&page=${page}`,
+      `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&page=${this.currentPage}`,
     );
   },
 
@@ -38,18 +50,6 @@ const api = {
 
   fetchMovieReviews(id) {
     return fetchData(`${BASE_URL}/movie/${id}/reviews?api_key=${API_KEY}`);
-  },
-
-  incresePage() {
-    this.currentPage += 1;
-  },
-
-  resetPage() {
-    this.currentPage = 1;
-  },
-
-  setAllPages(page) {
-    this.allPages = page;
   },
 };
 
